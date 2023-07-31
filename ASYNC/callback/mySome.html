@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var courses = [
+            {
+                id: 1,
+                name: 'js',
+                coin: 250
+            },
+            {
+                id: 2,
+                name: 'html, css',
+                coin: 0
+            },
+            {
+                id: 3,
+                name: 'ruby',
+                coin: 0
+            },
+            {
+                id: 4,
+                name: 'php',
+                coin: 0
+            }
+        ];
+
+        // tự viết hàm mySome() hoạt động tương tự hàm some()
+        // chỉ cần 1 trong các value thoả mãn điều kiện thì trả về true.
+
+        // Array.prototype.mySome là định nghĩa 1 phương thức mới cho array.
+        Array.prototype.mySome = function (cb){
+            // this là đại diện cho mảng truyền vào.
+            for (let i in this){
+                // hasOwnProperty() là phương thức kiểm tra xem value có nằm trong phạm vi mảng k
+                // vì khi định nghĩa 1 function mới thì sẽ duyệt qua cả function đó, ở đây là mySome().
+                if(this.hasOwnProperty(i)){
+                    if(cb(this[i], i, this)){
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        
+        var coin = courses.mySome(function (courses){
+            return courses.coin == 0      
+        })
+
+        console.log(coin);
+
+    </script>
+</body>
+</html>

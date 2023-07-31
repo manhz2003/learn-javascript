@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // json server
+        // các bước hướng dẫn https://github.com/typicode/json-server/blob/master/README.md
+
+        // lệnh cài json server
+        // npm init
+        // npm i json-server
+
+        // tạo 1 file db.json với nội dung.
+        // {
+        //     "cources": [
+        //         {
+        //             "id": 1,
+        //             "name": "Lập Trình JavaScript Nâng Cao",
+        //             "description": "Hiểu sâu hơn về cách Javascript hoạt động, tìm hiểu về IIFE, closure, reference types, this keyword, bind, call, apply, prototype, ..."
+        //         }
+        //     ]
+        // }
+
+        // mở file package.json trong phần script: thêm "start": "json-server --watch db.json",
+        // chạy lệnh: npm start
+
+        // test api vừa fake
+
+        var courcesApi = 'http://localhost:3000/cources'
+        fetch(courcesApi)
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(cources){
+                console.log(cources);
+            })
+
+    </script>
+</body>
+
+</html>

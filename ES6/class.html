@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // class 
+
+        class person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            // getter
+            get name() {
+                return this.name;
+            }
+
+            // setter
+            set name(name) {
+                this.name = name;
+            }
+
+            // Static method, chỉ truy cập từ lớp.
+            static greet() {
+                console.log("Hello!");
+            }
+
+            // ta có thể tạo phương thức ngay trong class mà không phải tạo thông qua 
+            getInfo() {
+                console.log(`Tên: ${this.name}`);
+                console.log(`Tuổi: ${this.age}`);
+            }
+        }
+
+        // Student kế thừa lại từ Person
+        class Student extends Person {
+            constructor(name, age, school) {
+                super(name, age); // tham chiếu đến thuộc tính của class cha là person
+                this.school = school; // thuộc tính khác của student
+            }
+
+            getSchool() {
+                console.log(`Trường: ${this.school}`);
+            }
+        }
+        // Tạo một instance của class Student
+        var student = new Student('John', 20, 'ABC School');
+
+        // Gọi phương thức getInfo của lớp cha
+        student.getInfo();
+
+        // Gọi phương thức getSchool của lớp con
+        student.getSchool();
+
+
+
+
+    </script>
+</body>
+
+</html>

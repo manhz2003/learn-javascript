@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback</title>
+</head>
+
+<body>
+    <script>
+        // CALLBACK
+        // Khái niệm: callback Là hàm được truyền qua đối số khi gọi 1 hàm khác.
+        // tham số param nhận vào đối số là 1 function nên nó chính là function.
+        // khi gọi param() trong myFunction thì myCallback sẽ thực thi.
+
+        function myFunction(param) {
+            param(`học lập trình`)
+        }
+
+        function myCallback(value) {
+            console.log(`value: ${value}`)
+        }
+
+        // Hàm myCallback là đối số của hàm myFunction
+        // Khi gọi myCallback làm đối số của myFunction thì tham số param trong myFunction chính là hàm Mycallback
+        myFunction(myCallback)
+    </script>
+</body>
+
+</html>

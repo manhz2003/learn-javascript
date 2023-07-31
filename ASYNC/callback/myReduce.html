@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var courses = [
+            {
+                id: 1,
+                name: 'js',
+                coin: 250
+            },
+            {
+                id: 2,
+                name: 'html, css',
+                coin: 0
+            },
+            {
+                id: 3,
+                name: 'ruby',
+                coin: 0
+            },
+            {
+                id: 4,
+                name: 'php',
+                coin: 0
+            }
+        ];
+
+        // myReduce()
+        Array.prototype.myReduce = function (cb, result) {
+            var i = 0;
+            if (arguments.length < 2) {
+                i = 1;
+                result = this[0];
+            }
+            for (; i < this.length; i++) {
+                result = cb(result, this[i], i, this);
+            }
+            return result;
+        }
+
+        var myCoin = courses.myReduce(function(a, b){
+                return a + b.coin;
+        }, 0)
+
+        console.log(myCoin);
+
+    </script>
+</body>
+
+</html>

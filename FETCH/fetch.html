@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="post-block"></ul>
+    <script>
+        // Fetch in js (dùng fetch để lấy ra json)
+        // Api (URL) -> cổng giao tiếp giữa các phần mềm
+        // Backend -> API -> Fetch -> Json /xml
+        // json.parse -> javascript types
+        // -> render ra giao diện với HTML
+
+        // link 1 số api được viết mẫu trên google https://jsonplaceholder.typicode.com/
+
+        let postApi = 'https://jsonplaceholder.typicode.com/albums'
+        fetch(postApi) // bên trong fetch sử dụng promise nên có thể sử dụng then
+            // then thứ 1 để chuyển đổi
+            .then(function (response) { // response: phản hổi
+                return response.json()
+                // JSON.parse: JSON -> javascript types
+            })
+            // then thứ 2 dùng để hiển thị
+            .then(function (posts) {
+                let htmls = posts.map(function (post) {
+                    return `<li>
+                <h1>${post.id}</h1>
+                <p>${post.title}</p>
+            </li>`
+                })
+                let html = htmls.join('')
+                document.getElementById('post-block').innerHTML = html
+            })
+            // nếu api bị lỗi thì lọt vào catch
+            .catch(function (err) {
+                console.log(err);
+            })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // toán tử default
+        // tham số rest
+        // toán tử spread
+
+        // toán tử default: khi không truyền 1 tham số nào thì tham số default sẽ được gọi ra.
+        function myFunction (name = 'manh', age = 20){
+            console.log(`ten: ${name}, tuoi: ${age}`);
+        }
+
+        myFunction(); // nếu không truyền tham số hàm sẽ nhận trị mặc định là manh và 20.
+        myFunction('nam', 18) // nếu truyền đối số thì hàm sẽ nhận đối số mới.
+
+        // tham số rest: trả về 1 mảng, có thể đặt tên khác.
+        function myFunction2 (...rest){
+            console.log(rest);
+        }
+
+        myFunction2(1, 2, 3 , 4) // tham số rest cho phép truyền vô số đối số tuỳ thích.
+
+        // toán tử spread: các giá trị trong biến ...spread sẽ được đưa vào array hoặc object...
+        var todoLists = ['di hoc', 'da bong', 'nau com'];
+        var todoListMore = ['choi game', ...todoLists] // mảng todoLists được đưa vào todoListMore.
+        console.log(todoListMore);
+
+        var person = {
+            name: 'manh',
+            age: 20
+        }
+
+        var student = {
+            className: 'it3',
+            ...person
+        }
+
+        console.log(student); // đối tượng person được đưa vào student thông qua biến ...person.
+
+
+    </script>
+</body>
+</html>

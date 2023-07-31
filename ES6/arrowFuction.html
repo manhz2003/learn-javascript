@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // arrow function
+        var person = {
+            name: 'manh',
+            age: 20,
+            // info: function (){
+            //     console.log(`ten: ${this.name}, tuoi: ${this.age}`);
+            // } hàm thông thường.
+            info: () => {
+                console.log(`ten: ${person.name}, tuoi: ${person.age}`);
+            }//  arrow function.
+        }
+
+        // khi dùng this trong arrow function sẽ trả giá trị underfind nên phải truy cập từ person.
+        person.info()
+    </script>
+</body>
+
+</html>

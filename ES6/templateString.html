@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // khai báo biết let, var, const.
+        // template string
+
+        // let: phạm vi truy cập trong 1 khối(local).
+        // var: phạm vi truy cập toàn cục (global).
+        // const: phạm vi truy cập trong 1 khối (global) và không được gán lại giá trị.
+
+        // sử dụng let khi khai báo trong block, và var khi khai báo ngoài block.
+
+        function myFunction (){
+            let a = 5;
+            console.log(a); // hợp lệ
+        }
+
+        //console.log(a); // lỗi, vì let chỉ có tác dụng trong khối {}.
+
+        var b;
+        function myFunction2 (){
+            b = 5;
+            console.log(b); // hợp lệ
+        }
+
+        console.log(b); // hợp lệ vì khai báo bên ngoài khối.
+        myFunction2()
+
+        var name = 'manh'
+        var age = 20;
+        // template string: ${} truyền biến vào bên trong, định dạng xuống dòng k cần \n...
+        console.log(`tên của tôi là ${name}
+        tuổi của tôi là ${age}`);
+
+    </script>
+</body>
+</html>

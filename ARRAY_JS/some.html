@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        var courses = [
+            {
+                id: 1,
+                name: 'js',
+                coin: 250
+            },
+            {
+                id: 2,
+                name: 'html, css',
+                coin: 0
+            },
+            {
+                id: 3,
+                name: 'ruby',
+                coin: 0
+            },
+            {
+                id: 4,
+                name: 'php',
+                coin: 0
+            }
+        ];
+
+        // some() : ngược lại với every, chỉ cần 1 phần tử thoả mãn điều kiện. trả về bolean.
+
+        // tham số thứ 1: trả về value của mảng.
+        // tham số thứ 2: trả về index của mảng.
+        // tham số thứ 3: trả về toàn bộ mảng.
+
+        // chỉ cần 1 trong các element thoả mãn thì trả về true.
+        // cũng nhận vào 3 tham số nhưng ở đây ta chỉ cần kiểm tra value.
+        // chỉ cần 1 khoá học có coin = 0 thi trả về true.
+
+        var isFree2 = courses.some(function (courses){
+            return courses.coin === 0
+        })
+
+        console.log(isFree2);
+    </script>
+</body>
+</html>

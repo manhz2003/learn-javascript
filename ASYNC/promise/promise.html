@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ĐỒNG BỘ VÀ BẤT ĐỒNG BỘ
+        // Khái niệm: đồng bộ và bất đồng bộ (sync, async).
+        // đồng bộ(sync): là chạy lần lượt từ trên xuống dưới.
+        // bất đồng bộ (async): là chạy theo 1 khoảng thời gian được quy định riêng.
+        // các api được sử dụng để hoạt động bất đồng bộ: setTimeout, setInterval, fetch, XMLHttpRequest...
+
+        // ví dụ về đồng bộ
+        function dongBo(num, string, boolean) {
+            console.log(`Giá trị của number = ${num}`) // thứ tự 1
+            console.log(`Giá trị của string = ${string}`) // thứ tự 2
+            console.log(`Giá trị của boolean = ${boolean}`) // thứ tự 3
+        }
+
+        dongBo(2003, 'string', true);
+
+        // ví dụ về bất đồng bộ
+        // hello 2 sẽ được in ra trước vì hello 1 bị xét dừng 1s.
+        function batDongBo() {
+            setTimeout(function () {
+                console.log('hello 1');
+            }, 1000)
+            console.log('hello 2');
+        }
+
+        batDongBo();
+
+
+        // PROMISE
+        // promise sinh ra là để khắc phục việc xử lý nhiều tác vụ liên quan với nhau
+        // bằng callback, dẫn tới callback hell, khiến cho mã khó đọc, khó bảo trì,...
+
+        // callback hell
+        // là việc xử lý các tác vụ bất đồng bộ liên quan đến nhau hàm sau phải chờ dữ
+        // liệu từ hàm trước, dẫn tới viết lồng callback vào nhau, khiến cho mã khó đọc, khó hiểu...
+        // từ đó promise sinh ra để khắc phục cách viết callbak bị lồng nhiều vào nhau.
+
+        // ví dụ về callback hell.
+        // setTimeout(function() {
+        //     console.log(1)
+        //     setTimeout(function() {
+        //         console.log(2)
+        //         setTimeout(function() {
+        //             console.log(3)
+        //         }, 200)
+        //     }, 200)
+        // }, 200)
+
+
+        // PROMISE cách hoạt động.
+        // bước 1: tạo new Promise
+        // bước 2: Excutor (thi hành)
+        let promise = new Promise(
+            function (resolve, reject) {
+                // logic xử lý.
+                // thành công: resolve()
+                // thất bại: reject()
+
+                // khi gọi resolve sẽ lọt vào then.
+                resolve([
+                    {
+                        name: 'Manh',
+                        age: 20
+                    }
+                ])
+
+                // khi gọi reject sẽ lọt vào catch.
+                reject('Co loi !')
+
+                // resolve()  trạng thái thành công, lọt vào then
+                // reject()  trạng thái thất bại, lọt vào catch
+                // filnally luôn được lọt vào dù resolve hay reject
+            }
+        )
+
+        // promise là: lời hứa.
+        // then là sau đó       : nếu đúng thì lọt vào.
+        // catch là bắt lấy.    : nếu sai thì lọt vào.
+        // finally là hoàn thành: dùng đúng hay sai thì vẫn lọt vào.
+
+
+        // có 3 trạng thái
+        // 1. Pending (trạng thái chờ), là khi chưa gọi resolve hoặc reject.
+        // 2. successully (trạng thái thành công).
+        // 3. fall (trạng thái thất bại).
+
+
+        promise
+            .then(function (info) {
+                console.log(info)
+            })
+            .catch(function (err) {
+                console.log(err)
+            })
+            .finally(function () {
+                console.log('done !')
+            })
+
+    </script>
+</body>
+
+</html>

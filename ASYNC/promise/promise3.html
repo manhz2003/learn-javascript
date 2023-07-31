@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // promise phần 3
+
+        // có 3 trường hợp là:
+        // promise.resolve  : trường hợp này promise trả về kết quả đúng.
+        // promise.reject   : trường hợp này promise trả về kết quả sai.
+
+        // promise.all      : trường hợp này promise chạy song song, nếu 
+        // 2 tác vụ không liên quan đến nhau, để chạy song song, tránh chờ lâu.
+        // ví dụ task A cần 5s, task B cần 2s thì chạy song song sẽ mất 5s
+        // để hoàn thành cả 2 tác vụ, nếu k sẽ mất 7s.
+        // nhưng chỉ cần 1 tác vụ bị lỗi thì tất cả sẽ vào catch.
+
+
+        var promise = Promise.resolve('success !');
+        // var promise = Promise.reject('error !');
+        promise
+            .then(function (result) {
+                console.log(`trang thai: ${result}`);
+            })
+            .catch(function (err) {
+                console.log(`trang thai: ${err}`);
+            })
+
+
+        // Promise.all
+        // ví dụ có 2 promise chạy song song kết quả không phụ thuộc vào nhau
+        // dùng Promise.all để thực hiện, nhưng chỉ cần 1 promise bị reject
+        // thì tất cả các promise các cũng bị dừng và nhảy vào catch.
+
+        var promise1 = new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                resolve([1, 2, 3])
+            }, 5000)
+        })
+
+        var promise2 = new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                resolve([4])
+            }, 2000)
+        })
+
+
+        Promise.all([promise1, promise2])
+
+            // result1 và result2 chứa kết quả của 2 promise
+            // sau đó ta thực hiện nối 2 mảng với nhau.
+            .then(function ([result1, result2]) {
+                console.log(result1.concat(result2));
+            })
+            .catch(function (err) {
+                console.log(err);
+            })
+
+
+
+    </script>
+</body>
+
+</html>

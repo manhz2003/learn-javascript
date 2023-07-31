@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        var courses = [
+            {
+                id: 1,
+                name: 'js',
+                coin: 250
+            },
+            {
+                id: 2,
+                name: 'html, css',
+                coin: 0
+            },
+            {
+                id: 3,
+                name: 'ruby',
+                coin: 0
+            },
+            {
+                id: 4,
+                name: 'php',
+                coin: 0
+            }
+        ];
+
+        // find(): tìm kiếm 1 phần tử có trong mảng và trả về phần tử đó.
+        
+        // tham số thứ 1: trả về value của mảng.
+        // tham số thứ 2: trả về index của mảng.
+        // tham số thứ 3: trả về toàn bộ mảng.
+
+        // kiểm tra trong mảng có 1 phần tử thoả mãn thì trả về phần tử đó, nếu không có trả về undefined.
+
+        var coursesName = courses.find(function (courses){
+            return courses.name === 'ruby'
+        })
+
+        console.log(coursesName);
+
+
+    </script>
+</body>
+</html>

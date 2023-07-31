@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Destructuring sử dụng vs array hoặc object.
+        // trích xuất các giá trị từ một đối tượng hoặc một mảng và gán chúng cho các biến riêng lẻ.
+
+        // array.
+        var numbers = [1, 2, 3, 4, 5];
+
+        // Trích xuất các phần tử trong mảng
+        var [first, second, ...rest] = numbers;
+
+        console.log(first); // 1
+        console.log(second); // 2
+        console.log(rest); // [3, 4, 5]
+
+        // object.
+        var person = { name: 'John', age: 30, city: 'New York' };
+
+        // Trích xuất các thuộc tính name và age
+        var { name, age } = person;
+
+        console.log(name); // 'John'
+        console.log(age); // 30
+
+        // tương tự với function 
+        function printPersonInfo({ name, age }) {
+            console.log(`Tên: ${name}`);
+            console.log(`Tuổi: ${age}`);
+        }
+
+        var person = { name: 'John', age: 30 };
+
+        printPersonInfo(person); // nếu đối số là 1 array cũng tương tự object.
+
+
+    </script>
+</body>
+
+</html>
