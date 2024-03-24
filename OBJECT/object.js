@@ -1,6 +1,6 @@
 // OBJECT JS
 // Lưu trữ thông tin của 1 đối tượng cụ thể
-//  gồm key và value: ví dụ key name có value là 'Mạnh Nguyễn'
+// gồm key và value: ví dụ key name có value là 'Mạnh Nguyễn'
 // có thể đặt function làm value trong object
 // từ khóa this thay cho myInfo
 
@@ -27,10 +27,7 @@ console.log(myInfo);
 console.log(myInfo.name);
 console.log(myInfo.getName());
 
-
-
 // đối tượng date
-
 let date = new Date()
 let year = date.getFullYear()
 let month = date.getMonth()

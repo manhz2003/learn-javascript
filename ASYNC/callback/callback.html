@@ -19,13 +19,12 @@
             param(`học lập trình`)
         }
 
-        function myCallback(value) {
-            console.log(`value: ${value}`)
-        }
-
         // Hàm myCallback là đối số của hàm myFunction
         // Khi gọi myCallback làm đối số của myFunction thì tham số param trong myFunction chính là hàm Mycallback
-        myFunction(myCallback)
+        myFunction(function (value) {
+            console.log(`value: ${value}`)
+        })
+
     </script>
 </body>
 

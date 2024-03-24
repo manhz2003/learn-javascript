@@ -48,6 +48,7 @@
         // 2. từ comment lấy ra user_id.
         // 3. từ user_id lấy ra user tương ứng.
 
+        // lấy data từ mảng comments
         function getComments() {
             return new Promise(function (resolve) {
                 setTimeout(function () {
@@ -58,9 +59,12 @@
 
         function getUsersByIds(userIds) {
             return new Promise(function (resolve) {
+                // trả về userIds của mảng comments mà có user.id nằm trong mảng đó
                 var result = users.filter(function (user) {
                     return userIds.includes(user.id)
                 })
+                console.log(result);
+
                 setTimeout(function () {
                     resolve(result)
                 }, 1000)
@@ -69,9 +73,8 @@
 
         getComments()
             .then(function (comments) {
-                var userIds = comments.map(function (comment) {                   
+                var userIds = comments.map(function (comment) {
                     return comment.user_id
-                    
                 })
 
                 return getUsersByIds(userIds)

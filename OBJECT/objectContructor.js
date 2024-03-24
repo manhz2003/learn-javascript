@@ -18,10 +18,10 @@ let person2 = new User('tung', 'nguyen', 2);
 person.title = 'học lập trình'
 person.phoneNumber = '0987739823'
 
-console.log(person)
+console.log(person)                                                                            
 console.log(person2)
 
-// this.getName là phương thức được tạo trong object.
+// this.getName là phương thức được tạo trong contructor.
 console.log(person.getName())
 console.log(person2.getName())
 
@@ -35,4 +35,7 @@ User.prototype.getClassName = function() {
 }
 
 console.log(person.className)
+console.log(person2.className)
+
+console.log(person2.getClassName())
 console.log(person2.getClassName())

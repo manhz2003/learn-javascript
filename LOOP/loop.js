@@ -25,8 +25,6 @@ for (let ketQua in arr) {
 // for of, lấy ra giá trị phần tử của array.
 for (let ketQua of arr) {
     console.log(ketQua)
-
-    
 }
 
 let person = {
